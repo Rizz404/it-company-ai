@@ -1,0 +1,82 @@
+/* The stage keeps the same upper navigation, wide panels and lower-right guide at each size. */
+@media (max-width:1100px) {
+    .stage { --gutter:24px; }
+    .stage-content { right:20%; padding:24px; }
+    .solution-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .stage-tabs a { padding-inline:10px; font-size:11px; }
+    .stage-welcome { width:76vw; }
+    .stage-character { right:0; max-width:22%; height:36vh; }
+    .stage-subnav { right:20%; }
+}
+@media (max-width:760px) {
+    .stage { --header:76px; --gutter:16px; --panel-top:148px; --panel-bottom:100px; --drawer:calc(100vw - 24px); }
+    .stage-header { gap:8px; }
+    .stage-header > :first-child > :last-child { max-width:43vw; }
+    .stage-header .company-monogram { width:32px; height:32px; font-size:16px; }
+    .stage-tools { gap:6px; } .stage-lang a { padding:8px 7px; }
+    .stage-header .sound-toggle { width:32px; height:32px; }
+    .stage-header .text-xs { font-size:9px; }
+    .stage-tabs { top:86px; right:0; gap:2px; padding-right:16px; }
+    .stage-tabs a { min-height:42px; padding:8px 12px; font-size:11px; }
+    .stage-tabs .nav-icon { display:none; }
+    .stage-image { object-position:var(--stage-focus-mobile,center); }
+    .stage-shade { background:linear-gradient(180deg,var(--navy-glass),var(--shade) 40%,transparent 70%); }
+    .stage-content { right:var(--gutter); padding:22px 18px; }
+    .stage-content h2 { font-size:30px; }
+    .stage-content .detail-scene h2 { font-size:28px; }
+    .stage:has(.stage-subnav) { --panel-top:222px; }
+    .stage-subnav { top:142px; right:0; padding-right:16px; height:70px; }
+    .item-nav a { min-width:170px; padding:6px 10px; }
+    .solution-grid { grid-template-columns:1fr; gap:14px; }
+    .solution-card { display:grid; grid-template-columns:100px 1fr; }
+    .solution-card > img { height:100%; aspect-ratio:auto; }
+    .solution-card-body { padding:16px; gap:8px; }
+    .solution-card h3 { font-size:23px; }
+    .solution-card p { font-size:11px; }
+    .solution-card-link { font-size:10px; }
+    .stage-character { z-index:4; right:0; height:150px; max-width:100px; }
+    .stage-demo-note { max-width:58%; bottom:12px; font-size:8px; }
+    .chat-launcher { right:96px; left:16px; bottom:40px; max-width:none; padding:12px; font-size:10px; }
+    .chat-launcher-arrow { font-size:14px; } .chat-launcher-dot { width:5px; height:5px; }
+    .stage-welcome { top:165px; width:calc(100% - 32px); padding:26px 22px; max-height:calc(100dvh - 290px); overflow-y:auto; }
+    .stage-welcome h1 { font-size:clamp(33px,8.5vw,52px); margin-top:16px; }
+    .stage-welcome > p { margin-top:18px; font-size:13px; }
+    .welcome-actions { margin-top:22px; gap:12px; }
+    .welcome-actions .stage-action { padding:12px 16px; font-size:11px; }
+    .welcome-secondary { font-size:10px; }
+    .welcome-footnote { margin-top:24px; font-size:8px; }
+    .chat-log { top:90px; bottom:90px; border-radius:10px; }
+    .chat-bar { bottom:104px; }
+    .chat-draft-dialog { bottom:180px; }
+    .chat-log-header { padding:12px; gap:6px; }
+    .chat-log-header .font-semibold { font-size:11px; }
+    .chat-log-header .text-xs { font-size:9px; }
+    .chat-log-new { font-size:9px; padding:6px; }
+    .chat-log-messages { padding:14px; }
+    .chat-log-expand { display:none; }
+    .chat-bar button { padding-inline:12px; font-size:12px; }
+    .chat-bar input { font-size:16px; }
+    .chat-host-avatar { width:28px; height:28px; }
+    .narrator-on-stage { position:relative; inset:auto; width:auto; }
+    .wizard-progress ol { gap:4px; }
+    .wizard-progress li span { font-size:8px; }
+    .wizard-step { grid-template-columns:1fr; }
+    .wizard-seats { grid-template-columns:1fr; }
+    .wizard-slots { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .wizard-summary dd { flex-wrap:wrap; }
+    .opening-panel { top:112px; width:calc(100% - 32px); padding:28px 22px; max-height:calc(100dvh - 240px); }
+    .opening-panel h1 { font-size:44px; }
+    .opening-tagline { font-size:13px; margin-top:18px; }
+    .opening-links { gap:0 16px; margin-top:24px; }
+    .opening-links a { font-size:11px; }
+    .opening-enter { left:16px; right:90px; bottom:44px; }
+    .opening-button { padding:14px 18px; font-size:12px; }
+    .stage[data-scene="opening"] .stage-character { height:160px; max-width:110px; }
+    .stage-tour { left:16px; right:16px; bottom:24px; max-width:calc(100% - 32px); font-size:16px; }
+}
+@media (max-height:700px) and (min-width:761px) {
+    .stage-welcome { top:175px; max-height:calc(100dvh - 230px); overflow-y:auto; padding:26px; }
+    .stage-welcome h1 { font-size:44px; } .welcome-footnote { margin-top:20px; }
+    .opening-panel { top:120px; max-height:calc(100dvh - 220px); padding:28px; }
+    .opening-panel h1 { font-size:48px; }
+}

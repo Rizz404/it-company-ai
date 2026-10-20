@@ -1,0 +1,8 @@
+.stage-welcome { position:absolute; z-index:3; left:var(--gutter); top:clamp(190px,24vh,270px); width:min(820px,71vw); padding:clamp(24px,4vw,56px); border:1px solid color-mix(in srgb,var(--ivory) 20%,transparent); border-radius:8px; color:var(--ivory); background:var(--navy-glass); backdrop-filter:blur(16px); }
+.stage-welcome .stage-eyebrow { color:var(--cyan); }
+.stage-welcome h1 { margin-top:22px; font:400 clamp(36px,4.3vw,68px)/1.06 var(--font-display); letter-spacing:-.035em; }
+.stage-welcome h1 em { color:var(--cyan); font-weight:400; }
+.stage-welcome > p { margin-top:24px; max-width:550px; font-size:15px; line-height:1.8; color:color-mix(in srgb,var(--ivory) 78%,transparent); }
+.welcome-actions { display:flex; flex-wrap:wrap; gap:20px; align-items:center; margin-top:30px; }
+.welcome-secondary { padding:10px 0; border-bottom:1px solid var(--cyan); font-size:12px; }
+.welcome-footnote { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-top:34px; padding-top:18px; border-top:1px solid color-mix(in srgb,var(--ivory) 18%,transparent); font-size:9px; letter-spacing:.16em; color:var(--cyan); }

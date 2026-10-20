@@ -1,0 +1,20 @@
+/* IT Company AI: all stage colors and layout dimensions. */
+.stage-page {
+    --paper: #fcfaf4; --paper-soft: #f0f3f0; --paper-deep: #dfe8e6;
+    --ink: #122c43; --ink-soft: #4b6372; --ink-faint: #687e89;
+    --line: #dce3de; --line-strong: #bdcecd;
+    --navy: #10273b; --navy-deep: #0b1c2c; --navy-glass: rgb(16 39 59 / .89);
+    --cyan: #7ce6eb; --cyan-ink: #126c80; --ivory: #fcfaf4; --white: #fff;
+    --terra: #166e82; --terra-deep: #105467; --terra-soft: #d9f1ef;
+    --leaf: #27816c; --sun: #dab568; --alert: #a54342; --alert-soft: #fbeceb; --alert-line: #e4b6b4;
+    --shade: rgb(6 22 36 / .6); --shadow-card: 0 24px 64px rgb(4 21 35 / .25); --shadow-soft: 0 8px 24px rgb(4 21 35 / .14);
+    --radius-card: 12px; --radius-control: 8px;
+    font-variant-emoji: text; height: 100dvh; overflow: hidden; background: var(--navy); color: var(--ink);
+}
+.stage { --ease-cine: cubic-bezier(.22,.8,.24,1); --header: 88px; --gutter: clamp(20px,4vw,64px); --panel-top: 172px; --panel-bottom: 54px; --drawer: min(680px,76vw); --chat-composer-height: 58px; position: relative; height: 100dvh; overflow: hidden; isolation: isolate; }
+.stage :focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+.stage button:disabled { cursor: wait; opacity: .5; }
+.stage-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; color: var(--terra); }
+.stage-noscript { position: absolute; z-index: 40; inset: auto 12px 12px; padding: 16px; background: var(--paper); }
+.stage-demo-note { position: absolute; z-index: 4; bottom: 18px; left: var(--gutter); max-width: 70%; color: var(--ivory); opacity: .8; font-size: 10px; letter-spacing: .02em; }
+.stage [hidden] { display: none !important; }

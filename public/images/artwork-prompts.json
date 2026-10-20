@@ -1,0 +1,22 @@
+{
+  "generator": "Built-in image_gen; generated 2026-10-20",
+  "assets": [
+    {
+      "path": "images/scenes/office.png",
+      "prompt": "Create a wide 16:9 illustrated background for an immersive IT Company AI website. A refined technology company headquarters at blue hour: architectural reception atrium, ivory travertine, navy steel frames, floor-to-ceiling windows with distant Jakarta skyline, cyan light accents, indoor greenery, subtle computers visible in a distant collaborative workspace. Sophisticated hand-painted architectural editorial illustration with clean geometric detail, calm warm lighting, cinematic depth. Spacious central and left negative space for website interface overlays. No people, no words, no logos, no watermark. Color palette navy, warm ivory, restrained cyan."
+    },
+    {
+      "path": "images/scenes/lab.png",
+      "prompt": "Create a wide 16:9 illustrated backdrop for an IT consultancy website service catalog and capabilities scenes. An elegant software innovation lab with minimalist desks, abstract code-like screens without readable text, glass partition walls, server racks in distance, wall diagrams with abstract connected shapes, ivory surfaces and navy framing with cyan ambient light. Sophisticated hand-painted architectural editorial illustration, clean precise forms, calm evening light, cinematic depth. No people, no readable text, no logos or watermark. Keep central area uncluttered for UI overlay. Navy ivory cyan palette."
+    },
+    {
+      "path": "images/scenes/meeting.png",
+      "prompt": "Create a wide 16:9 illustrated backdrop for a technology consulting website meeting and consultant scenes. Premium glass meeting studio in a modern IT headquarters, long ivory conference table, six elegant navy chairs, large wall screen displaying abstract connected cyan nodes without text, windows showing a city at dusk, plants and a warm pendant light. Sophisticated hand-painted architectural editorial illustration matching an elegant technology campus, precise geometry, spacious composition for interface overlays. No people, no readable text, no branding or watermark. Navy ivory restrained cyan."
+    },
+    {
+      "path": "images/character/consultant.png",
+      "prompt": "Create a single full-body character cutout on an actually transparent background for IT Company AI, a technology consultancy website. Friendly Indonesian woman solution consultant in her early thirties, shoulder-length dark hair, navy tailored blazer over ivory blouse, tailored navy trousers, subtle cyan lanyard without lettering, holding a slim closed tablet at her waist, natural approachable confident smile, standing in a relaxed professional pose facing slightly left toward website content. Sophisticated polished editorial character illustration with softly painted shading, precise clean edges, proportional adult anatomy, coordinated navy ivory cyan palette. Entire person including shoes inside the image, no pedestal, no floor, no shadows extending into background, no text, no logo, no watermark."
+    }
+  ],
+  "alpha": "The character PNG has an RGBA alpha channel; transparency preserved."
+}
