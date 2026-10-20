@@ -1,0 +1,16 @@
+{
+    "version": "0.0.1",
+    "configurations": [
+        {
+            "name": "it-company-ai-dev",
+            "runtimeExecutable": "php",
+            "runtimeArgs": [
+                "artisan",
+                "serve",
+                "--host=127.0.0.1",
+                "--port=8027"
+            ],
+            "port": 8027
+        }
+    ]
+}
