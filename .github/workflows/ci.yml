@@ -1,0 +1,66 @@
+name: Manual checks
+on:
+  workflow_dispatch:
+    inputs:
+      php_tests:
+        description: 'PHPUnit (run only when requested)'
+        type: boolean
+        default: false
+      js_tests:
+        description: 'JavaScript tests (run only when requested)'
+        type: boolean
+        default: false
+      php_style:
+        description: 'PHP style check (run only when requested)'
+        type: boolean
+        default: false
+      ui_lint:
+        description: 'UI conventions (run only when requested)'
+        type: boolean
+        default: false
+      composer_audit:
+        description: 'Composer audit (run only when requested)'
+        type: boolean
+        default: false
+      npm_audit:
+        description: 'npm runtime audit (run only when requested)'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: pdo_sqlite, sqlite3, intl, mbstring
+          coverage: none
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: composer install --no-interaction --no-progress --prefer-dist
+      - run: cp .env.example .env && php artisan key:generate --no-interaction
+      - run: npm ci --ignore-scripts
+      - run: npm run build
+      - name: PHPUnit
+        if: inputs.php_tests
+        run: composer test
+      - name: JavaScript tests
+        if: inputs.js_tests
+        run: npm run test:ui
+      - name: PHP style check
+        if: inputs.php_style
+        run: php vendor/bin/pint --test
+      - name: UI conventions
+        if: inputs.ui_lint
+        run: npm run lint:ui
+      - name: Composer audit
+        if: inputs.composer_audit
+        run: composer audit
+      - name: npm runtime audit
+        if: inputs.npm_audit
+        run: npm audit --omit=dev

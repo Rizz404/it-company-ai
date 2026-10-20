@@ -1,0 +1,4 @@
+; Apply to the target Plesk site only.
+memory_limit = 256M
+max_execution_time = 95
+; Keep Plesk's timestamp validation enabled so deployments load new code.
