@@ -27,9 +27,17 @@ Isi `LOCAL_LLM_BASE_URL`, `LOCAL_LLM_API_KEY`, dan `LOCAL_LLM_MODEL` secara priv
 
 Tujuh tool yang diizinkan: `search_knowledge`, `search_services`, `get_service_offering`, `search_consultants`, `check_consultation_availability`, `create_consultation_request`, `request_human_handover`. Tenant dan percakapan berasal dari server, bukan argumen model. AI hanya membuat permintaan, tidak mengonfirmasi transaksi atau menjanjikan hasil proyek.
 
-`OPENROUTER_*` bersifat opsional untuk TTS narator/chat; konfigurasi dan percobaan provider nyata belum dilakukan. `MAIL_MAILER=log` berarti tidak ada email nyata dikirim. Kontak publik tenant, akun admin, mailbox, dan pengirim SMTP merupakan pengaturan terpisah.
+`OPENROUTER_*` bersifat opsional untuk TTS narator/chat. Kredensial LLM dan TTS produksi sudah dikonfigurasi secara privat; panggilan provider nyata belum dicoba. `MAIL_MAILER=log` berarti aplikasi belum mengirim email melalui SMTP.
 
-## Fondasi produksi, belum deploy
+## Produksi
+
+Situs berada di https://it-company-ai.fts-tech.co.id, panggung tenant di https://it-company-ai.fts-tech.co.id/it-company-ai, dan panel admin di https://it-company-ai.fts-tech.co.id/admin. Repository publik https://github.com/Rizz404/it-company-ai memakai branch `main`.
+
+Deployment memakai Plesk Laravel Toolkit dengan mode Automatic dan webhook GitHub untuk event push. Ping webhook diterima HTTP 204. HTTPS Let's Encrypt aktif; endpoint `/up` dan aset CSS/JS mengembalikan HTTP 200. PostgreSQL sudah menjalankan seluruh sembilan migrasi. Data awal produksi berisi enam layanan, empat konsultan, dan sembilan knowledge items yang tetap berlabel demo.
+
+Mailbox dan kontak publik memakai `it-company-ai@fts-tech.co.id`. Akun admin bernama `Admin IT Company AI` memakai email tersebut. Password acak admin dan mailbox disimpan privat di server, tidak di repository. SMTP aplikasi ditunda. Scheduler Toolkit aktif untuk menjalankan jadwal aplikasi, termasuk pembukaan slot harian.
+
+Plesk memberikan peringatan nonfatal saat menautkan log vhost baru. Deployment dan pemeriksaan HTTPS selesai; izin log milik subscription bersama tidak diubah.
 
 `deploy/env.production.example` memakai PostgreSQL. Gunakan PHP 8.4 dan Node 24 pada Plesk sesuai panduan utama. Terapkan `memory_limit=256M`, `max_execution_time=95`, dan `ProxyTimeout 100` hanya pada target. Template nginx/supervisor adalah contoh VPS terpisah dan tidak dipakai di Plesk.
 
@@ -37,7 +45,7 @@ Tujuh tool yang diizinkan: `search_knowledge`, `search_services`, `get_service_o
 
 Untuk tenant kosong, jalankan `php artisan db:seed --class=ProductionCompanySeeder --force`. Seeder ini idempoten dan menghasilkan tenant draft tanpa akun atau data demo. Lengkapi konten/kontak lalu ubah status publik melalui proses administrasi yang disetujui sebelum go-live.
 
-Buat admin dengan `php artisan company:create-admin --email=<email> --name=<nama> --company=it-company-ai`. Password minimal 12 karakter dibaca dua kali secara rahasia atau dari stdin; jangan berikan sebagai argumen. Command menolak email yang sudah terdaftar. Kredensial belum dibuat pada sesi development ini.
+Buat admin tambahan dengan `php artisan company:create-admin --email=<email> --name=<nama> --company=it-company-ai`. Password minimal 12 karakter dibaca dua kali secara rahasia atau dari stdin; jangan berikan sebagai argumen. Command menolak email yang sudah terdaftar. Akun produksi awal sudah dibuat melalui command ini.
 
 Untuk demo produksi, gunakan seeder per kelas dalam urutan Company, ServiceOffering, Consultant, ConsultantImage, ConsultationSlot, CompanyKnowledgeItem; jangan jalankan UserSeeder/CompanyUserSeeder. Seeder demo adalah contoh dan tidak boleh dianggap kebijakan bisnis nyata.
 
@@ -47,6 +55,6 @@ Additional actions Toolkit setelah dependency: `npm run build`, `php artisan mig
 
 CI pemeriksaan hanya dipicu manual melalui `workflow_dispatch`; setiap jenis tes/lint/audit mempunyai pilihan tersendiri yang default-nya nonaktif. Urutannya membangun aset sebelum PHPUnit. Suite bawaan dipertahankan dengan identifier domain yang disesuaikan, tetapi belum dijalankan atau dinyatakan lulus untuk domain ini. Lint dan audit juga belum dijalankan. Migrasi/setup, build, kompilasi view/cache, dan format PHP merupakan persiapan development.
 
-Testing tidak dijalankan karena belum diminta secara eksplisit. QA browser, login, chat, konsultasi end-to-end, LLM/TTS/SMTP nyata belum dicoba. Build aset, migrasi SQLite, kompilasi view/cache, dan format PHP berhasil pada sesi 20 Oktober 2026. Tidak ada commit, remote, push, atau deploy; seluruhnya menunggu instruksi eksplisit berikutnya.
+Testing tidak dijalankan karena belum diminta secara eksplisit. QA browser, login, chat, konsultasi end-to-end, LLM/TTS/SMTP nyata belum dicoba. Build aset, migrasi SQLite dan PostgreSQL, kompilasi view/cache, format PHP, serta deployment Toolkit berhasil pada sesi 20 Oktober 2026. Commit, push branch `main`, repository publik, dan deployment telah diizinkan pengguna; perubahan produksi berikutnya tetap mengikuti batas izin yang disepakati.
 
 Aset hasil built-in imagegen tersimpan di `public/images/scenes/{office,lab,meeting}.png` dan `public/images/character/consultant.png`. Prompt aset dicatat di `public/images/artwork-prompts.json`.
