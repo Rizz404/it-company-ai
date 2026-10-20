@@ -1,0 +1,75 @@
+<?php
+
+return [
+    'trusted_proxies' => array_values(array_filter(array_map('trim', explode(',', (string) env('TRUSTED_PROXIES', ''))))),
+    'locales' => [
+        'id',
+        'en',
+        'ja',
+    ],
+    'default_locale' => 'id',
+    'avatar_image' => 'images/character/consultant.png',
+    'scenes' => [
+        'home' => [
+            'image' => 'images/scenes/office.png',
+            'character' => 'images/character/consultant.png',
+            'focus' => 'center 45%',
+            'focusMobile' => '60% 45%',
+            'anchor' => 'right',
+            'text' => 'top',
+        ],
+        'services' => [
+            'image' => 'images/scenes/lab.png',
+            'character' => 'images/character/consultant.png',
+            'focus' => 'center 45%',
+            'focusMobile' => '60% 45%',
+            'anchor' => 'right',
+            'text' => 'top',
+        ],
+        'consultants' => [
+            'image' => 'images/scenes/meeting.png',
+            'character' => 'images/character/consultant.png',
+            'focus' => 'center 45%',
+            'focusMobile' => '60% 45%',
+            'anchor' => 'right',
+            'text' => 'top',
+        ],
+        'facilities' => [
+            'image' => 'images/scenes/lab.png',
+            'character' => 'images/character/consultant.png',
+            'focus' => 'center 45%',
+            'focusMobile' => '60% 45%',
+            'anchor' => 'right',
+            'text' => 'top',
+        ],
+        'info' => [
+            'image' => 'images/scenes/office.png',
+            'character' => 'images/character/consultant.png',
+            'focus' => 'center 45%',
+            'focusMobile' => '60% 45%',
+            'anchor' => 'right',
+            'text' => 'top',
+        ],
+        'staff' => [
+            'image' => 'images/scenes/meeting.png',
+            'character' => 'images/character/consultant.png',
+            'focus' => 'center 45%',
+            'focusMobile' => '60% 45%',
+            'anchor' => 'right',
+            'text' => 'top',
+        ],
+        'consultation' => [
+            'image' => 'images/scenes/meeting.png',
+            'character' => 'images/character/consultant.png',
+            'focus' => 'center 45%',
+            'focusMobile' => '60% 45%',
+            'anchor' => 'right',
+            'text' => 'top',
+        ],
+    ],
+    'scene_artwork' => [
+        'service-offering' => 'services',
+        'consultant' => 'consultants',
+        'facility' => 'facilities',
+    ],
+];
